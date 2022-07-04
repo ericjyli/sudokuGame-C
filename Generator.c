@@ -189,13 +189,30 @@ void removeKDigits(int generateGrid[sudDimension][sudDimension]){
 * Parameter: the the generated grid
 */
     srand(time(NULL));
-    
+    bool valid = false;
     int K,k;
-    printf("Please choose the difficulty level (1 (easy), 2 (medium), 3 (hard): ");
-    scanf("%d",&k);
-    if (k == 1) K = 30;
-    if (k == 2) K = 40;
-    if (k == 3) K = 45;
+    while (!valid){
+        printf("Please enter a number to choose the difficulty level (1 (easy), 2 (medium), 3 (hard): ");
+        scanf(" %d",&k);
+        
+        if (k == 1) {
+            K = 30;
+            valid = true;
+        }
+        else if (k == 2) {
+            K = 40;
+            valid = true;
+        }
+        else if (k == 3) {
+            K = 50;
+            valid = true;
+        }
+        else {
+            printf("Invalid difficulty selected.\n");
+            k = 0;
+            continue;
+        }
+    }
     int rowIndex;
     int colIndex;
     int random;
@@ -215,6 +232,7 @@ void removeKDigits(int generateGrid[sudDimension][sudDimension]){
 
 }
 
+
 bool checkMoveLegal(int grid[sudDimension][sudDimension], int userDigit, int userCol, int userRow){
 /*
 Takes the user's input and checks if the move they are making is legal move. Takes the user indicated digit
@@ -230,7 +248,6 @@ This function may call helper functions that checks legality in each scenario.
         return false;
     }
 }
-
 bool repeatinSubGrid(int grid[9][9], int userDigit, int userRow, int userCol){
     int startRow = userRow - userRow % 3, startCol = userCol - userCol % 3;
     for (int i = 0; i < 3; i++)
