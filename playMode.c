@@ -28,17 +28,22 @@ void printSudokuGrid(int grid[sudDimension][sudDimension],int generatedGrid[sudD
 
 void playing(int generatedGrid[9][9]);
 
+//color adjustment
+void clay();
+void reset();
+
 #endif
 
 void initGrid(int grid[9][9]);
 
+//color adjustment
 void clay(){
     printf("\033[0;36m");
 }
-
 void reset(){
     printf("\033[0m");
 }
+
 
 /* This function takes in the user’s selected row and column to check whether the position has an element.
 * Return type: boolean
@@ -196,6 +201,11 @@ void playing(int generatedGrid[9][9]){
                     printSudokuGrid(grid,generatedGrid);
                     continue;
                 }
+            }
+
+            if (row > 8 || col > 8 || row < 0 || col < 0){
+                printf("The move is illegal.\n");
+                continue;  
             }
 
             move = checkMoveLegal (grid,userNum,col,row);

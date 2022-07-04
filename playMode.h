@@ -21,4 +21,6 @@ void printSudokuGrid(int grid[sudDimension][sudDimension],int generatedGrid[sudD
 
 
 void playing(int generatedGrid[9][9]);
+void clay();
+void reset();
 #endif
