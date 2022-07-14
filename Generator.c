@@ -194,7 +194,7 @@ void removeKDigits(int generateGrid[sudDimension][sudDimension]){
         scanf(" %d",&k);
         
         if (k == 1) {
-            K = 1;
+            K = 30;
             valid = true;
         }
         else if (k == 2) {
