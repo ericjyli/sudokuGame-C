@@ -20,7 +20,9 @@ This function should print the grid to the console, takes the grid as an input
 void printSudokuGrid(int grid[sudDimension][sudDimension],int generatedGrid[sudDimension][sudDimension]);
 
 
-void playing(int generatedGrid[9][9]);
+void playing(int generatedGrid[9][9],int grid[9][9]);
 void clay();
 void reset();
+
+bool notWantToContinue();
 #endif

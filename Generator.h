@@ -4,7 +4,7 @@
 #define numOfBlocks 81
 #include <stdbool.h>
 
-void generator(int generatedGrid[9][9]);
+//void generator(int generatedGrid[9][9]);
 /*
 * This function initializes the array of available numbers for each block, the numbers range from 1 to 9.
 * Return Type: void

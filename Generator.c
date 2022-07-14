@@ -10,7 +10,7 @@
 #define numOfBlocks 81
 #include <stdbool.h>
 
-void generator(int generatedGrid[9][9]);
+//void generator(int generatedGrid[9][9]);
 /*
 * This function initializes the array of available numbers for each block, the numbers range from 1 to 9.
 * Return Type: void
@@ -87,9 +87,7 @@ void printGrid(int grid[sudDimension][sudDimension]){
     }
 }
 
-void generator(int generatedGrid[9][9]){
-    
-}
+//void generator(int generatedGrid[9][9]){}
 
 void initialAvailable(int availArray[numOfBlocks][sudDimension]){
 /*
@@ -111,7 +109,7 @@ void linearFill(int grid[sudDimension][sudDimension]){
 * Return Type: void
 * Parameter: the generated grid
 */
-    int numBlock;
+   
     initGrid (grid);
     int availableNum[numOfBlocks][sudDimension];
     initialAvailable (availableNum);
@@ -196,7 +194,7 @@ void removeKDigits(int generateGrid[sudDimension][sudDimension]){
         scanf(" %d",&k);
         
         if (k == 1) {
-            K = 30;
+            K = 1;
             valid = true;
         }
         else if (k == 2) {

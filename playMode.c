@@ -26,11 +26,13 @@ This function should print the grid to the console, takes the grid as an input
 */
 void printSudokuGrid(int grid[sudDimension][sudDimension],int generatedGrid[sudDimension][sudDimension]);
 
-void playing(int generatedGrid[9][9]);
+void playing(int generatedGrid[9][9],int grid[9][9]);
 
 //color adjustment
 void clay();
 void reset();
+
+bool wantToContinue();
 
 #endif
 
@@ -143,9 +145,8 @@ void printSudokuGrid(int grid[sudDimension][sudDimension],int generatedGrid[sudD
     
 }
 
-void playing(int generatedGrid[9][9]){
+void playing(int generatedGrid[9][9], int grid[9][9]){
 
-    int grid[9][9];
     initGrid(grid);
     for (int i = 0; i < 9; i++){
         for (int j = 0; j < 9; j++){
@@ -154,14 +155,14 @@ void playing(int generatedGrid[9][9]){
     }
 
     printSudokuGrid(grid,generatedGrid);
-    printf("If you want to restart the game, fill in 10.\n");
+    printf("If you want to restart this game, fill in 10.\n");
 
     bool goOn = gameNotDone (grid);
     int userNum;
     char userRow;   char userCol;
     int row;    int col;
 
-    bool valid;
+
     bool move;
 
     while (goOn){
@@ -183,12 +184,12 @@ void playing(int generatedGrid[9][9]){
 
 
         if (userNum < 0 || userNum > 9){
-            valid = false;
+            
             printf ("Invalid input.\n");
             continue;
         }
         if (userNum >= 0 && userNum <= 9){
-            valid = true;
+            
             printf("Enter the location you want to fill %d in: (row col): ",userNum);
             scanf(" %c %c",&userRow,&userCol);
             row = userRow - 'A';
@@ -222,13 +223,34 @@ void playing(int generatedGrid[9][9]){
                 printSudokuGrid(grid,generatedGrid);
                 goOn = gameNotDone (grid);
                 if (goOn == false){
-                    printf("You win!");
+                    printf("You win!\n\n");
                     break;
                 }
             }
         }
         
     }
+
 }
 
+bool notWantToContinue(){
+    char next;
+    printf("Do you want to continue to the next game? (y/n) \n");
+    scanf(" %c",&next);
+    bool valid = false;
+    while (!valid){
+        if (next == 'y'){
+            return false;
+        }
 
+        else if (next == 'n'){
+            return true;
+        }
+
+        else {
+            printf("Invalid input!\n");
+            continue;
+        }
+    }
+    return 0;
+}
